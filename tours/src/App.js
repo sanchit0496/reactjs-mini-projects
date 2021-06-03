@@ -26,9 +26,11 @@ class App extends React.Component{
         this.fetchLocation();
     }
 
-
     removeD = (id) => {
-        console.log(id);
+        const{destinations, isLoading, error} = this.state
+        const newTours = destinations.filter((destination) => destination.id !== id)
+        this.setState({destinations: newTours})
+        console.log(destinations)
     }
 
 
