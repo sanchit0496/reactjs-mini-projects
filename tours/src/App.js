@@ -1,26 +1,30 @@
 import React, { useState } from 'react';
 
 
-
-
-const App = () => {
-    const url = 'https://course-api.com/react-tours-project';
-
-    const [tours, setTours] = useState([]);
-
-    const fetchTours = async () => {
-        const response = await fetch(url);
-        const tourdata = await response.json();
-        setTours(tourdata);
-        console.log({tours});
+class App extends React.Component{
+    constructor(props){
+        super(props)
+        this.state = {
+            isLoading: true,
+            destination: [],
+            error: null
+        }
     }
 
+    fetchLocation = () => {
+        fetch(`https://course-api.com/react-tours-project`)
+        .then(response => response.json)
+        .then(data => {
+            this.setState({
+                users:data,
+                isLoading: false
+            })
+        }).catch(error => this.setState( {error, isLoading: false} ))
+    }
 
-    return (
-        <div>
-           <h1>Hello</h1>
-        </div>
-    )
+    componentDidMount(){
+        this.fetchLocation();
+    }
+
 }
-
 export default App
