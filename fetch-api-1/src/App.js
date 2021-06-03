@@ -36,11 +36,11 @@ class App extends React.Component{
                 {
                     !isLoading? (
                         users.map(user => {
-                            const {username, name, email} = user;
+                            //const {username, name, email} = user;
                             return(
-                                <div key = {username}>
-                                <p>Name: {name}</p>
-                                <p>Email: {email}</p>    
+                                <div key = {user.username}>
+                                <p>Name: {user.name}</p>
+                                <p>Email: {user.email}</p>    
                                 <hr />
                                 </div>
                             )
