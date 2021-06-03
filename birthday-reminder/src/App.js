@@ -5,7 +5,10 @@ import List from './List.js';
 function App(){
     const [people, setPeople] = useState(data);
     return(
-        <List people = {people} />
+        <div>
+            <List people = {people} />
+            <button onClick = { () => setPeople([])}>Clear Birthdays</button>
+        </div>
     )
 }
 
