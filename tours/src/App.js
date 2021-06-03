@@ -27,8 +27,8 @@ class App extends React.Component{
     }
 
 
-    removeD = () => {
-        console.log('remove');
+    removeD = (id) => {
+        console.log(id);
     }
 
 
@@ -47,7 +47,9 @@ class App extends React.Component{
                             return(
                                 <div key = {destination.id}>
                                     <p>{destination.name}</p>
-                                    <button onClick = {this.removeD}>Remove</button>
+                                    <button onClick = { () => {this.removeD(destination.id)}}>
+                                        Remove
+                                    </button>
                                 </div>
                             )
                         })           
