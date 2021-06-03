@@ -6,17 +6,17 @@ class App extends React.Component{
         super(props)
         this.state = {
             isLoading: true,
-            destination: [],
+            destinations: [],
             error: null
         }
     }
 
     fetchLocation = () => {
         fetch(`https://course-api.com/react-tours-project`)
-        .then(response => response.json)
+        .then(response => response.json())
         .then(data => {
             this.setState({
-                users:data,
+                destinations:data,
                 isLoading: false
             })
         }).catch(error => this.setState( {error, isLoading: false} ))
@@ -24,6 +24,31 @@ class App extends React.Component{
 
     componentDidMount(){
         this.fetchLocation();
+    }
+
+    render(){
+        const{destinations, isLoading, error} = this.state
+        return(
+            <React.Fragment>
+                <h1>Random User</h1>
+                {
+                    error? <p>error.message</p> : null
+                }
+                {
+                    !isLoading ? (
+                        destinations.map(destination => {
+                            return(
+                                <div key = {destination.id}>
+                                    <p>{destination.name}</p>
+                                </div>
+                            )
+                        })           
+                    ) : (
+                        <h2>Loading</h2>
+                    )
+                }
+            </React.Fragment>
+        )
     }
 
 }
