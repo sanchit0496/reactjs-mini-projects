@@ -10,11 +10,13 @@ class App extends React.Component{
         }
     }
 
-    ticking = () => {
+
+    componentDidMount(){
         setInterval(() => {
-            this.setState(new Date())
-        }, 1000)
+            this.setState({clock: new Date()})
+        }, 1000);
     }
+
 
     render(){
         return(
