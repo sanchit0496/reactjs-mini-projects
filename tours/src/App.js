@@ -26,8 +26,15 @@ class App extends React.Component{
         this.fetchLocation();
     }
 
+
+    removeD = () => {
+        console.log('remove');
+    }
+
+
     render(){
         const{destinations, isLoading, error} = this.state
+
         return(
             <React.Fragment>
                 <h1>Random User</h1>
@@ -40,6 +47,7 @@ class App extends React.Component{
                             return(
                                 <div key = {destination.id}>
                                     <p>{destination.name}</p>
+                                    <button onClick = {this.removeD}>Remove</button>
                                 </div>
                             )
                         })           
