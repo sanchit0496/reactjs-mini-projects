@@ -7,6 +7,7 @@ class App extends React.Component{
         this.state = {
             message: 'hello'
         }
+        this.clickHandler = this.clickHandler.bind(this)
     }
 
 
