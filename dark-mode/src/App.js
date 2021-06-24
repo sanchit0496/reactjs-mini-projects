@@ -1,16 +1,17 @@
 import React, {useState, useEffect} from 'react'
+import './index.css'
 
 const App = () => {
 
     const [darkmode, setDarkMode] = useState(false)
-    const body = document.getElementById('body');
+    const body = document.getElementById('root');
     const toggle = document.getElementById('toggle')
 
     useEffect(() => {
         if(darkmode === false){
             body.classList.add('dark')
         }else{
-            body.classList.add('light')
+            body.classList.remove('dark')
         }
     }, [darkmode])
     
@@ -18,7 +19,13 @@ const App = () => {
         <div>
             <button
             id = 'toggle'
-            onClick = {() => {alert('hello')}} 
+            onClick = {() => {
+                if(darkmode === true){
+                    setDarkMode(false)
+                }else if(darkmode === false){
+                    setDarkMode(true)
+                }
+            }} 
             >
                 Click Here To Toggle
             </button>
