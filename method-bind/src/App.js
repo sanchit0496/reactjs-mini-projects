@@ -1,11 +1,34 @@
-import React from 'react'
+import React, {Component} from 'react'
+import { render } from 'react-dom'
 
-function App() {
-    return (
-        <div>
-            App
-        </div>
-    )
+class App extends React.Component{
+    constructor(props){
+        super(props)
+        this.state = {
+            message: 'hello'
+        }
+    }
+
+
+
+    clickHandler(){
+        this.setState({
+            message:'yeah'
+        })
+    }
+    render(){
+        return(
+            <div>   
+    
+                {this.state.message}
+                <button onClick = {this.clickHandler}>Click</button>
+    
+            </div>
+        )
+    }
+    
+
 }
+
 
 export default App
