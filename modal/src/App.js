@@ -9,11 +9,7 @@ const App = () => {
         <div>
             <button
                 onClick = {() => {
-                    if(modelOpen === false){
-                        setModelOpen(true)
-                    }else if(modelOpen === true){
-                        setModelOpen(false)
-                    }
+                    setModelOpen(true)
                 }}
             >
                 Click
@@ -21,6 +17,13 @@ const App = () => {
             <Modal isOpen = {modelOpen}>
                 <h2>Model Heading</h2>
                 <p>Model Paragraph</p>
+                <button
+                    onClick = {() => {
+                        setModelOpen(false)
+                    }}
+                >
+                    Okay
+                </button>
             </Modal>
         </div>
     )
