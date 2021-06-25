@@ -1,11 +1,30 @@
 import React from 'react'
 
-const App = () => {
-    return (
-        <div>
-            App
-        </div>
-    )
+class App extends React.Component{
+
+    constructor(props){
+        super(props)
+        this.setState = {
+            pics: []
+        }
+    }
+
+    componentDidMount(){
+        this.fetchPics()
+    }
+
+    fetchPics(){
+
+    }
+
+    render(){
+        return(
+            <div>
+                App
+            </div>
+        )
+    }
+
 }
 
 export default App
