@@ -7,7 +7,18 @@ export class App extends Component {
         this.state = {
             tasks:  []
         };
+        this.addTask = this.addTask.bind(this)
     }
+
+    addTask(event){
+        event.preventDefault();
+        let taskArray = this.state.tasks;
+        let newTaskInput = this.refs.newTask.value;
+        taskArray.push(newTaskInput);
+        this.setState({tasks: taskArray})
+        this.refs.newTask.value = "";
+        console.log(taskArray)
+    } 
 
     render() {
         return (
