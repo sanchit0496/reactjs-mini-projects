@@ -1,12 +1,17 @@
 import React from 'react'
-import Header from './Header.js';
 import { BrowserRouter as Router, Switch, Route} from "react-router-dom";
- 
+import Header from './Header.js';
+import About from './About.js'
+
+
 const App = () => {
     return (
         <Router>
+            Welcome to the page
             <Header />
-            App
+            <Switch>
+                <Route path = "/about" component = {About}/>
+            </Switch>
         </Router>
     )
 }
