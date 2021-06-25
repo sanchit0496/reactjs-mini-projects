@@ -27,6 +27,7 @@ export class App extends Component {
         return (
             <div>
                 <img src= {this.state.imgSrc} alt="" />
+                <button onClick = {this.fetchImg}>Next</button>
             </div>
         )
     }
