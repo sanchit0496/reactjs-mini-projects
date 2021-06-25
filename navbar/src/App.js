@@ -1,12 +1,13 @@
 import React from 'react'
 import Header from './Header.js';
-
+import { BrowserRouter as Router, Switch, Route} from "react-router-dom";
+ 
 const App = () => {
     return (
-        <div>
+        <Router>
             <Header />
             App
-        </div>
+        </Router>
     )
 }
 
