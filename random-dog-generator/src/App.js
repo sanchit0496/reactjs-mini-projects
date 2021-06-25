@@ -5,9 +5,10 @@ export class App extends Component {
     constructor(props){
         super(props)
         this.state = {
-            imgSrc : ''
+            imgSrc : '',
+            didload: false
         }
-        
+        this.fetchImg = this.fetchImg.bind(this);
     }
 
     componentDidMount(){
@@ -19,14 +20,18 @@ export class App extends Component {
 
         fetch(url)
         .then(response => response.json())
-        .then(res => this.setState({imgSrc: res.data.image_url}))
+        .then(res => this.setState({imgSrc: res.data.image_url, didload: true}))
         
     }
+
+    
 
     render() {
         return (
             <div>
-                <img src= {this.state.imgSrc} alt="" />
+                
+                {this.state.didload ? <img src= {this.state.imgSrc} alt="" /> :<span>Loading</span> }
+                
                 <button onClick = {this.fetchImg}>Next</button>
             </div>
         )
