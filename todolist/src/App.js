@@ -20,6 +20,12 @@ export class App extends Component {
         console.log(taskArray)
     } 
 
+    removeTask(name, i){
+        let tasks = this.state.tasks.slice();
+        tasks.splice(i, 1);
+        this.setState(tasks)
+    }
+
     render() {
         return (
             <div>
@@ -28,7 +34,11 @@ export class App extends Component {
                     <input type="text" ref = "newTask"/>
                     <button type = "submit">Add</button>
                 </form>
-                
+                {
+                    this.state.tasks.map(task => (
+                        <li>{task}</li>
+                    ))
+                }
             </div>
         )
     }
