@@ -7,20 +7,19 @@ class App extends React.Component{
         this.setState = {
             pics: []
         }
+        this.fetchPics = this.fetchPics.bind(this)
     }
 
-    componentDidMount(){
-        this.fetchPics()
-    }
-
+   
     fetchPics(){
-
+        alert('clicked')
     }
 
     render(){
         return(
             <div>
-                App
+                <input type="text" placeholder = 'Enter Value'/>
+                <input type="submit" onClick = {this.fetchPics}/>
             </div>
         )
     }
