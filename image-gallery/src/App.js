@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import Photo from './Photo.js';
 
 export class App extends Component {
     constructor(props){
@@ -28,7 +29,11 @@ export class App extends Component {
         return (
             <div>
                 App
-                
+                {
+                    this.state.pics.map((pic) => {
+                        return <img src = {pic.download_url} key = {pic.id}/>
+                    })
+                }
             </div>
         )
     }
