@@ -1,45 +1,35 @@
 import React, {useState} from 'react'
 import Sidebar from 'react-sidebar'
 
-const App = () => {
+class App extends React.Component{
+    constructor(props){
+        super(props)
+        this.state = {
+            sidebarOpen : false
+        };
+        this.onSetSidebarOpen = this.onSetSidebarOpen.bind(this)
 
-    const [sidebarOpen, setSidebarOpen] = useState(false)
+    }
 
-    return (
+    onSetSidebarOpen(open){
+        this.setState({sidebarOpen: open})
+    }
 
-
-    <div>
-                
+    render(){
+        return(
             <Sidebar
-                sidebar = { 
-                <div>
-                    <h1>Hello</h1>
-                    <button
-                onClick = {() => {
-                    if(sidebarOpen === true){
-                        setSidebarOpen(false)
-                    }
-                }}
-                >
-                    Close
-                </button>
-                </div>
-                 }
-                open = {sidebarOpen}
-                onSetOpen = {sidebarOpen}
+                sidebar = {<p>Hello</p>}
+                open = {this.state.sidebarOpen}
+                onSetOpen = {this.onSetSidebarOpen}
             >
-                <button
-                onClick = {() => {
-                    if(sidebarOpen === false){
-                        setSidebarOpen(true)
-                    }
-                }}
-                >
-                    Open
+                <button onClick={() => this.onSetSidebarOpen(true)}>
+                    Open sidebar
                 </button>
+
             </Sidebar>
-        </div>
-    )
+        )
+    }
+
 }
 
 export default App
