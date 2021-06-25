@@ -4,7 +4,7 @@ class App extends React.Component{
 
     constructor(props){
         super(props)
-        this.setState = {
+        this.state = {
             value: '',
             pics: []
         }
@@ -15,8 +15,14 @@ class App extends React.Component{
     fetchPics(event){
         event.preventDefault();
         let a = document.getElementById('term').value;
-        console.log(a)
-        let url = 'https://pixabay.com/api/?key=22238304-8a144d939bdfe845e8130ae3b&q=yellow+flowers&image_type=photo'
+        console.log(a);
+        let url = `https://pixabay.com/api/?key=22238304-8a144d939bdfe845e8130ae3b&q=${a}&image_type=photo`;
+
+        fetch(url)
+        .then(response => response.json())
+        .then(res => this.setState({pics: res.data}))
+        console.log(this.state.pics);
+
     }
 
     render(){
