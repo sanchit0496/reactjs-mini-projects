@@ -11,7 +11,20 @@ const App = () => {
     <div>
                 
             <Sidebar
-                sidebar = { <h1>Hello</h1> }
+                sidebar = { 
+                <div>
+                    <h1>Hello</h1>
+                    <button
+                onClick = {() => {
+                    if(sidebarOpen === true){
+                        setSidebarOpen(false)
+                    }
+                }}
+                >
+                    Close
+                </button>
+                </div>
+                 }
                 open = {sidebarOpen}
                 onSetOpen = {sidebarOpen}
             >
@@ -21,9 +34,9 @@ const App = () => {
                         setSidebarOpen(true)
                     }
                 }}
-            >
-                Open
-            </button>
+                >
+                    Open
+                </button>
             </Sidebar>
         </div>
     )
