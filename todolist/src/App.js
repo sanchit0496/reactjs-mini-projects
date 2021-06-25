@@ -10,6 +10,7 @@ export class App extends Component {
         this.addTask = this.addTask.bind(this)
     }
 
+
     addTask(event){
         event.preventDefault();
         let taskArray = this.state.tasks;
@@ -20,10 +21,15 @@ export class App extends Component {
         console.log(taskArray)
     } 
 
-    removeTask(name, i){
-        let tasks = this.state.tasks.slice();
-        tasks.splice(i, 1);
-        this.setState(tasks)
+    removeTask(name){
+        let afterTasks = this.state.tasks;
+        let newTasks = [];
+        for(let i = 0; i < afterTasks.length; i++){
+            if(afterTasks[i] !== name){
+                newTasks.push(afterTasks[i])
+            } 
+        }
+        this.setState({tasks: newTasks})
     }
 
     render() {
@@ -36,7 +42,7 @@ export class App extends Component {
                 </form>
                 {
                     this.state.tasks.map(task => (
-                        <li>{task}</li>
+                        <li>{task} <button onClick = {() => {this.removeTask(task)}}>Remove</button></li>
                     ))
                 }
             </div>
