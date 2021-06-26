@@ -18,10 +18,17 @@ const App = () => {
         }
         fetchPosts();
     }, [])
-console.log(posts)
+
+
+    //for pagination
+    const indexOfLastPost = currentPage * postsPerPage
+    const indexOfFirstPost = indexOfLastPost - postsPerPage
+    const currentPosts = posts.slice(indexOfFirstPost, indexOfLastPost)
+
+
     return (
         <div>
-            <Posts posts = {posts} loading = {loading} />
+            <Posts posts = {currentPosts} loading = {loading} />
         </div>
     )
 }
