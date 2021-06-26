@@ -22,15 +22,16 @@ const App = () => {
 
 
     //for pagination
+    const paginate = (pageNumber) => setCurrentPage(pageNumber)
+
     const indexOfLastPost = currentPage * postsPerPage
     const indexOfFirstPost = indexOfLastPost - postsPerPage
     const currentPosts = posts.slice(indexOfFirstPost, indexOfLastPost)
 
-
     return (
         <div>
             <Posts posts = {currentPosts} loading = {loading} />
-            <Pagination postsPerPage = {postsPerPage} totalPosts = {posts.length} />
+                <Pagination postsPerPage = {postsPerPage} totalPosts = {posts.length} paginate = {paginate}/>
         </div>
     )
 }
