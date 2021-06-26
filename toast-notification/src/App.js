@@ -1,9 +1,16 @@
 import React from 'react'
+import {toast} from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css';
+toast.configure()
+
+const notify = () => {
+    toast('hello')
+}
 
 const App = () => {
     return (
         <div>
-            App
+            <button onClick = {notify}>Toast</button>
         </div>
     )
 }
