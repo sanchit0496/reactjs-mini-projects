@@ -1,11 +1,39 @@
-import React from 'react'
+import React, { Component } from 'react'
 
-const App = () => {
-    return (
-        <div>
-            App
-        </div>
-    )
+
+export class App extends Component {
+    constructor(props){
+        super(props)
+        this.state = {
+            person: []
+        }
+        this.fetchPerson = this.fetchPerson.bind(this)
+    }
+
+    componentDidMount(){
+        this.fetchPerson();
+    }
+
+    fetchPerson(){
+        let url = 'https://randomuser.me/api/'
+        fetch(url)
+        .then(response => response.json())
+        .then(res => this.setState({person: res.results}))
+        
+    }
+    // 
+
+    render() {
+        return (
+            <div>
+                {
+                    this.state.person.map((kid) => {
+                        return <h4>{kid.email}</h4>
+                    })
+                }
+            </div>
+        )
+    }
 }
 
 export default App
