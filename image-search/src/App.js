@@ -15,7 +15,6 @@ class App extends React.Component{
     fetchPics(e){
         e.preventDefault();
         let a = document.getElementById('term').value;
-        alert('clicked')
         let url = `https://pixabay.com/api/?key=22238304-8a144d939bdfe845e8130ae3b&q=${a}&image_type=photo`;
 
         fetch(url)
