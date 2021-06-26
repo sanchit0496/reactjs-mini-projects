@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import axios from 'axios';
 import Posts from './Posts.js';
+import Pagination from './Pagination.js';
 
 const App = () => {
 
@@ -29,6 +30,7 @@ const App = () => {
     return (
         <div>
             <Posts posts = {currentPosts} loading = {loading} />
+            <Pagination />
         </div>
     )
 }
