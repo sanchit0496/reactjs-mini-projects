@@ -30,7 +30,7 @@ const App = () => {
     return (
         <div>
             <Posts posts = {currentPosts} loading = {loading} />
-            <Pagination />
+            <Pagination postsPerPage = {postsPerPage} totalPosts = {posts.length} />
         </div>
     )
 }
