@@ -5,7 +5,8 @@ class App extends React.Component{
     constructor(props){
         super(props)
         this.state = {
-            pics: []
+            pics: [],
+            hasLoaded: false
         }
         this.fetchPics = this.fetchPics.bind(this)
     }
@@ -19,21 +20,19 @@ class App extends React.Component{
 
         fetch(url)
         .then(response => response.json())
-        .then(res => this.setState({pics: res}))
+        .then(res => this.setState({pics: res, hasLoaded: true}))
     }
 
     render(){
         return(
             <div>
-                <form onSubmit = {this.fetchPics}>
+                <form onSubmit>
                     <input type="text" id='term' placeholder = 'Enter Value'/>
-                    <input type="submit"/>
+                    <input type="submit" onSubmit = {(e) => {this.fetchPics(e)}}/>
                 </form>
                 
                 {
-                    this.state.pics.map((pic) => {
-                        return <img src= {pic.hits.largeImageURL} key={pic.hits.id} />
-                    })
+                    this.state.hasLoaded ? <span>Loaded</span> : <span>Loading</span>
                 }
             </div>
         )
