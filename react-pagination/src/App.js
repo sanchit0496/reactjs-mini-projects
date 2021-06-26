@@ -1,4 +1,6 @@
 import React, {useState, useEffect} from 'react'
+import axios from 'axios';
+import Posts from './Posts.js';
 
 const App = () => {
 
@@ -8,15 +10,18 @@ const App = () => {
     const[postsPerPage] = useState(10)
 
     useEffect(() => {
-        effect
-        return () => {
-            cleanup
+        const fetchPosts = async() => {
+            setLoading(true)
+            const res = await axios.get('https://jsonplaceholder.typicode.com/posts')
+            setPosts(res.data)
+            setLoading(false)
         }
-    }, [input])
-
+        fetchPosts();
+    }, [])
+console.log(posts)
     return (
         <div>
-            App
+            <Posts posts = {posts} loading = {loading} />
         </div>
     )
 }
