@@ -31,6 +31,7 @@ export class App extends Component {
                         return <h4>{kid.email}</h4>
                     })
                 }
+                <input type="submit" onClick = {this.fetchPerson} />
             </div>
         )
     }
