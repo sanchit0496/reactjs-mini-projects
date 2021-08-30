@@ -1,1 +1,1 @@
-Bunch of front end projects using React
+Bunch of front end projects using React and other tech as well
